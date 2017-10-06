@@ -45,7 +45,9 @@ public class Practice14GetFontMetricsView extends View {
         // 这种居中算法的优点是，可以让不同的文字的 baseline 对齐
 
         int middle = (top + bottom) / 2;
-        canvas.drawText(texts[0], 100, middle, paint2);
+        Paint.FontMetrics fontMetrics = paint2.getFontMetrics();
+
+        canvas.drawText(texts[0], 100, middle - (fontMetrics.ascent + fontMetrics.descent) / 2, paint2);
         canvas.drawText(texts[1], 200, middle, paint2);
         canvas.drawText(texts[2], 300, middle, paint2);
         canvas.drawText(texts[3], 400, middle, paint2);
